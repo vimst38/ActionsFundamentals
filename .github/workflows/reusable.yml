@@ -8,9 +8,21 @@ on:
         required: true
         default: World
 
+    outputs:
+      current-time:
+        description: 'The time when greeting.'
+        value: ${{ jobs.reusable-job.outputs.current-time }}  # sort le temp du job de la ste^(voir en dessous
+
 jobs:
   reusable-job:
     runs-on: ubuntu-latest
     steps: 
       - name: hello
       - run: echo "Hello ${{ inputs.who-to-greet }}"
+
+      - name: Set time # créé une variable "time" pour la step et la remplie
+        id: time
+        run: echo "time=$(date)" >> $GITHUB_OUTPUT
+
+    outputs:
+      current-time: ${{ steps.time.outputs.time }}  # créé une variable 'current-time' pour le job et la remplie avec ce qui viens de la step
