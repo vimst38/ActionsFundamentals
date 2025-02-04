@@ -14,11 +14,11 @@ on:
     inputs:
       environment:
         description: 'Environment to deploy to'
-        type: environment
+        type: environment # kind of description of the input parameters types can be string, number....
         required: true
         
 jobs:
-  Build:
+  Build:  # this is the name of the job
     runs-on: ubuntu-latest
     steps:
       - name: Output event that triggert te workflow
@@ -36,9 +36,9 @@ jobs:
 
   Test:
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_dispatch'
-    needs: Build
-    environment: Test
+    if: github.event_name == 'workflow_dispatch' # que si déclenché manuellement
+    needs: Build  #after
+    environment: Test # 'Test' here is the name of an environement created elswher, not the name of the kob
     steps:
       - run: echo "🧪 Testing..."
 
