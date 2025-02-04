@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@4 # mandatory for local actions
+        uses: actions/checkout@4.2.2 # mandatory for local actions
 
       - name: Run my own container action
         id: hello-action
