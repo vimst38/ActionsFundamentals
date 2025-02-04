@@ -11,5 +11,5 @@ inputs:
   runs:
     using: 'docker
     image: 'Dockerfile'
-    arg: 
+    args: 
       - ${{ inputs.who-to-greet }} # pass la vaiable au container docker
