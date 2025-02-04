@@ -17,7 +17,7 @@ on:
         type: environment # kind of description of the input parameters types can be string, number....
         required: true
         
-jobs:
+jobs:  # all these will be ran in parallel except if there is condition on the "need" field
   Build:  # this is the name of the job
     runs-on: ubuntu-latest
     steps:
@@ -58,7 +58,7 @@ jobs:
     environment:
       name: Production
       url: https://writeabout.net
-    if: github.event.inputs.environment == 'Production'
+    if: github.event.inputs.environment == 'Production' # condition sur le nom de l'environement
     steps:
       - run: |
           echo "🚀 Step 1..."
