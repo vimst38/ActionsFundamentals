@@ -21,8 +21,8 @@ jobs:
       - run: echo "Hello ${{ inputs.who-to-greet }}"
 
       - name: Set time # créé une variable "time" pour la step et la remplie
-        id: time
-        run: echo "time=$(date)" >> $GITHUB_OUTPUT
+      - id: time
+      - run: echo "time=$(date)" >> $GITHUB_OUTPUT
 
     outputs:
       current-time: ${{ steps.time.outputs.time }}  # créé une variable 'current-time' pour le job et la remplie avec ce qui viens de la step
