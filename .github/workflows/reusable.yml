@@ -1,6 +1,6 @@
 name: Reusable workflow
 on:
-  workflow_call:
+  workflow_call: # make it callable by other workflow with the 'call_workflow' keyword
     inputs:
       who-to-greet:
         description: 'The person to greet'
